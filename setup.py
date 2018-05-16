@@ -60,7 +60,7 @@ long_description = (
 install_requires = [
     'Cherrypy>3.1.0',
     'click',
-    'Django>=1.4.0',
+    'Django==1.7.11',
     'future',
     'setuptools',
     'six',

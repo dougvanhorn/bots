@@ -11,3 +11,6 @@ ghpages:
 	rm -rf $(GH_PAGES_SOURCES) _build
 	git add -A
 	git commit -m "Generated gh-pages" && git push origin gh-pages ; git checkout master
+
+venv:
+	virtualenv --python=/usr/bin/python ve

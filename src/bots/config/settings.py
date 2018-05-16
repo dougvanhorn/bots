@@ -8,7 +8,7 @@ PROJECT_PATH = os.path.abspath(os.path.dirname(bots.__file__))
 
 #*******settings for sending bots error reports via email**********************************
 MANAGERS = (    #bots will send error reports to the MANAGERS
-    ('name_manager', 'adress@test.com'),
+    ('Doug', 'doug@example.com'),
     )
 EMAIL_HOST = 'localhost'             #Default: 'localhost'
 EMAIL_PORT = '25'             #Default: 25
@@ -20,17 +20,12 @@ EMAIL_HOST_PASSWORD = ''    #Default: ''. PASSWORD to use for the SMTP server de
 
 #*********database settings*************************
 #SQLite database (default bots database)
-#~ DATABASES = {
-    #~ 'default': {
-        #~ 'ENGINE': 'django.db.backends.sqlite3',
-        #~ 'NAME': os.path.join(PROJECT_PATH, 'botssys/sqlitedb/botsdb'),
-        #~ 'USER': '',         #not needed for SQLite
-        #~ 'PASSWORD': '',     #not needed for SQLite
-        #~ 'HOST': '',         #not needed for SQLite
-        #~ 'PORT': '',         #not needed for SQLite
-        #~ 'OPTIONS': {},      #not needed for SQLite
-        #~ }
-    #~ }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_PATH, 'botssys/sqlitedb/botsdb'),
+        }
+    }
 #~ #MySQL:
 #~ DATABASES = {
     #~ 'default': {
@@ -44,17 +39,17 @@ EMAIL_HOST_PASSWORD = ''    #Default: ''. PASSWORD to use for the SMTP server de
         #~ }
     #~ }
 #~ #PostgreSQL:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'botsdb',
-        'USER': 'bots',
-        'PASSWORD': 'botsbots',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-        'OPTIONS': {},
-        }
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'botsdb',
+#         'USER': 'bots',
+#         'PASSWORD': 'botsbots',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#         'OPTIONS': {},
+#         }
+#     }
 
 #*********setting date/time zone and formats *************************
 # Local time zone for this installation. Choices can be found here:
@@ -62,7 +57,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Europe/Amsterdam'
+TIME_ZONE = 'America/Chicago'
 
 #~ *********language code/internationalization*************************
 # Language code for this installation. All choices can be found here:
@@ -96,7 +91,7 @@ SESSION_SAVE_EVERY_REQUEST = True           #if True: SESSION_COOKIE_AGE is inte
 #~ TEMPLATE_DEBUG = DEBUG
 SITE_ID = 1
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'm@-u37qiujmeqfbu$daaaaz)sp^7an4u@h=wfx9dd$$$zl2i*x9#awojdc'
+SECRET_KEY = 'bots secret key changed to protect the innocent.'
 
 #*******template handling and finding*************************************************************************
 # List of callables that know how to import templates from various sources.

@@ -65,3 +65,15 @@ text: http://www.gnu.org/copyleft/gpl.html
 
 .. _Henk-Jan Ebbers: http://bots.sourceforge.net/en/index.shtml
 .. _documentation: https://bots-edi.github.io/bots
+
+
+DVH
+---
+
+virtualenv --python=/usr/bin/python ve
+. ve/bin/activate
+python setup.py develop
+python postinstallation -install
+bots-webserver
+
+Credentials: bots / botsbots
