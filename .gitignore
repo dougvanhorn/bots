@@ -57,6 +57,7 @@ ve3/
 
 # Eclipe + PyDev
 .pydevproject/
+.django_settings_module
 
 # Installer logs
 pip-log.txt

@@ -1,17 +1,12 @@
-# -*- coding: utf-8 -*-
-
 ''' Bots configuration for django's admin site.'''
 
 from django import forms
-try:
-    from django.forms import util as django_forms_util
-except:
-    from django.forms import utils as django_forms_util  # django1.7
-from django.utils.translation import ugettext as _
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-#bots-modules
+from django.forms import utils as django_forms_util
+from django.utils.translation import ugettext as _
+
 from . import models
 from . import botsglobal
 
@@ -101,6 +96,7 @@ admin.site.register(models.channel, ChannelAdmin)
 class MyConfirmruleAdminForm(forms.ModelForm):
     ''' customs form for route for additional checks'''
     class Meta:
+        exclude = []
         model = models.confirmrule
         widgets = {'idroute': forms.Select(), }
 
@@ -218,6 +214,7 @@ admin.site.register(models.partnergroep, PartnerGroepAdmin)
 class MyRouteAdminForm(forms.ModelForm):
     ''' customs form for route for additional checks'''
     class Meta:
+        exclude = []
         model = models.routes
 
     def clean(self):
@@ -256,6 +253,7 @@ admin.site.register(models.routes, RoutesAdmin)
 class MyTranslateAdminForm(forms.ModelForm):
     ''' customs form for translations to check if entry exists (unique_together not validated right (because of null values in partner fields))'''
     class Meta:
+        exclude = []
         model = models.translate
 
     def clean(self):

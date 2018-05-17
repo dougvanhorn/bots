@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-
+''' functions for reading and making plugins.
+    Reading an making functions are separate functions.
+'''
 
 import sys
-if sys.version_info[0] > 2:
-    str = str = str
 import os
-#~ import time
 import zipfile
 import zipimport
 import codecs
@@ -15,16 +14,12 @@ from django.utils.translation import ugettext as _
 from . import models
 from . import botslib
 from . import botsglobal
-''' functions for reading and making plugins.
-    Reading an making functions are separate functions.
-'''
-
 #******************************************
 #* read a plugin **************************
 #******************************************
 
 
-@django.db.transaction.commit_on_success  # if no exception raised: commit, else rollback.
+@django.db.transaction.atomic  # if no exception raised: commit, else rollback.
 def read_index(filename):
     ''' process index file in default location. '''
     try:
@@ -51,7 +46,7 @@ def read_index(filename):
         botsglobal.logger.info(_('Writing to database is OK.'))
 
 
-@django.db.transaction.commit_on_success  # if no exception raised: commit, else rollback.
+@django.db.transaction.atomic  # if no exception raised: commit, else rollback.
 def read_plugin(pathzipfile):
     ''' process uploaded plugin. '''
     #test if valid zipfile

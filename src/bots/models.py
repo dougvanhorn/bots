@@ -1,26 +1,26 @@
-# -*- coding: utf-8 -*-
-
-
+''' Declare database tabels.
+    Django is not always perfect in generating db - but improving ;-)).
+    The generated database can be manipulated SQL. see bots/sql/*.
+'''
+import os
+import re
 import sys
+
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_integer
+from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
+
+from . import botsglobal
+from . import validate_email
+
 if sys.version_info[0] > 2:
     str = str = str
     from urllib.parse import quote as urllib_quote
 else:
     from urllib.parse import quote as urllib_quote
-import os
-import re
-from django.db import models
-from django.utils.translation import ugettext_lazy as _  # django 1.7: have to use ugettext_lazy here
-#~ from django.core.validators import validate_email
-from django.core.validators import validate_integer
-from django.core.exceptions import ValidationError
-from django.utils.encoding import python_2_unicode_compatible
-from . import botsglobal
-from . import validate_email
-''' Declare database tabels.
-    Django is not always perfect in generating db - but improving ;-)).
-    The generated database can be manipulated SQL. see bots/sql/*.
-'''
+
 #***Declare constants, mostly codelists.**********************************************
 DEFAULT_ENTRY = ('', '---------')
 STATUST = [

@@ -60,7 +60,7 @@ long_description = (
 install_requires = [
     'Cherrypy>3.1.0',
     'click',
-    'Django==1.7.11',
+    'Django==2.0.*',
     'future',
     'setuptools',
     'six',
@@ -138,6 +138,7 @@ setuptools.setup(
 
     entry_points={
         'console_scripts': [
+            'manage = bots.manage:main',
             'bots-dirmonitor = bots.dirmonitor:start',
             'bots-engine = bots.engine:start',
             'bots-engine2 = bots.engine:start',
